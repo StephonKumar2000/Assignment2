@@ -11,14 +11,32 @@ Array.prototype.myEach = function(x) {
 });
 
 // MAP //
-Array.prototype.myMap = function() {
-
+var a = [43, 54, 32, 12]
+Array.prototype.myMap = function(call) {
+  var new_ = [];
+  for(let i = 0; i < this.length; i++){
+    new_.push(call(this[i]));
+  }
+  return new;
 };
+var new_a = a.myMap(function(item)){
+  return item * 2
+});
 
 // FILTER //
-Array.prototype.myFilter = function() {
-
+var a2 = [23,54,12,89];
+Array.prototype.myFilter = function(call2) {
+  var new_2 = [];
+  for(let i = 0; i < this.length; i++){
+    if(call2(this[i])){
+      new2.push(this[i]);
+    }
+  }
+  return new_2
 };
+var new_a2 = s.myFilter(function(item){
+  return item% 2 == 1;
+});
 
 // SOME //
 Array.prototype.mySome = function() {
