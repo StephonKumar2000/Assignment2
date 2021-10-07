@@ -1,58 +1,79 @@
 // FOR EACH //
-Array.prototype.myEach = function(x) {
-  for(let i=0; i<this.length; i++){
-    x(this[i], i)
+cost arr = [1,2,3,4];
+Array.prototype.myEach = function(callback1) {
+  for(let i = 0; i < this.length; i++){
+    if (this[i] === undefined) continue;
+
+    callback(this[i], i, this);
   }
 
 };
-
-[1,2,3,4,5].myEach(function(y, i){
-  console.log(y)
-});
 
 // MAP //
-var a = [43, 54, 32, 12]
-Array.prototype.myMap = function(call) {
-  var new_ = [];
-  for(let i = 0; i < this.length; i++){
-    new_.push(call(this[i]));
+Array.prototype.myMap = function(callback2) {
+  let newArray = [];
+  let x = this.length;
+  for (let i = 0; i < x; i++) {
+    let counter = callback2(this[i]);
+    newArray.push(counter);
   }
-  return new;
+  return newArray;
 };
-var new_a = a.myMap(function(item)){
-  return item * 2
-});
+
+let arr = [1, 2, 3];
+arr = arr.myMap(e => e * 2);
+console.log(arr);
 
 // FILTER //
-var a2 = [23,54,12,89];
-Array.prototype.myFilter = function(call2) {
-  var new_2 = [];
-  for(let i = 0; i < this.length; i++){
-    if(call2(this[i])){
-      new2.push(this[i]);
+var a = [12,45,61,80];
+
+Array.prototype.myFilter = function(callback3){
+  var newArray = [];
+  for(let i =0; i < this.length ; i++){
+    if(callback3(this[i])){
+      newArray.push(this[i]);
     }
   }
-  return new_2
+  return newArray;
+
 };
-var new_a2 = s.myFilter(function(item){
-  return item% 2 == 1;
+
+var new_s = s.myFilter(function(item){
+  return item % 2 === 1;
 });
 
+
+
 // SOME //
-Array.prototype.mySome = function() {
+Array.prototype.mySome = function(callback4, con1) {
+  for(var i = 0; i < this.length; i++){
+    if (callback4.call(con1, this[i], i, this))
+    return true;
+  }
+  return false;
 
 };
 
 // EVERY //
-Array.prototype.myEvery = function() {
-
+Array.prototype.myEvery = function(callback5, con2) {
+  for (var i = 0; i < this.length; i++){
+    if(!callback5.call(con2, this[i], i, this))
+    return false;
+  }
+  return true;
 };
 
 // REDUCE //
-Array.prototype.myReduce = function() {
-
+Array.prototype.myReduce = function(callback6, intVal) {
+    var a_ = (intVal === undefined) ? undefined : intVal;
+    for (var i = 0; i < this.length; i++) {
+        if (a_ !== undefined)
+            a_ = callback6.call(undefined, a_, this[i], i, this);
+        else
+            a_ = this[i];
+    }
+    return a_;
 };
-
 // INCLUDES //
 Array.prototype.myIncludes = function() {
 
