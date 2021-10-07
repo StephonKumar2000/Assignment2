@@ -1,7 +1,14 @@
 // FOR EACH //
-Array.prototype.myEach = function() {
+Array.prototype.myEach = function(x) {
+  for(let i=0; i<this.length; i++){
+    x(this[i], i)
+  }
 
 };
+
+[1,2,3,4,5].myEach(function(y, i){
+  console.log(y)
+});
 
 // MAP //
 Array.prototype.myMap = function() {
@@ -57,4 +64,3 @@ Object.grabKeys = function() {
 Object.grabValues = function() {
 
 };
-
