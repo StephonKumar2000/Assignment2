@@ -75,8 +75,16 @@ Array.prototype.myReduce = function(callback6, intVal) {
     return a_;
 };
 // INCLUDES //
-Array.prototype.myIncludes = function() {
-
+const array = [1, 2, 3, 4, 5, 6, 7, 8];
+const callback7 = 3;
+Array.prototype.myIncludes = function(callback7) {
+  for(let i = 0; i < this.length; i++){
+    const el = this[i];
+    if(callback7 === el){
+      return true;
+    };
+  };
+  return false;
 };
 
 // INDEXOF //
