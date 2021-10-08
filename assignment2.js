@@ -102,6 +102,7 @@ Array.prototype.myIndexOf = function(callback8) {
 // PUSH //
 Array.prototype.myPush = function(callback9) {
   this[this.length] = callback9;
+   return this.length;
 
 };
 
@@ -120,11 +121,19 @@ Array.prototype.myLastIndexOf = function(callback10) {
 
 // KEYS //
 Object.grabKeys = function(callback11) {
-  this.
-
+  let newArr = [];
+  for (let key in callback11) {
+    newArr.myPush(key);
+  }
+  return newArr;
 };
 
 // VALUES //
 Object.grabValues = function(callback12) {
+  let newArr = [];
+  for (let key in callback12) {
+    newArr.myPush(callback12[key]);
+  }
+  return newArr;
 
 };
