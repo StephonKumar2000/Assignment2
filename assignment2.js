@@ -86,28 +86,45 @@ Array.prototype.myIncludes = function(callback7) {
   };
   return false;
 };
+console.log(arr.myIncludes(callback7));
 
 // INDEXOF //
-Array.prototype.myIndexOf = function() {
+Array.prototype.myIndexOf = function(callback8) {
+  for (let i = this.length - 1; i >= 0; --i) {
+    if (this[i] === callback8) {
+      return i;
+    }
+  }
+  return -1;
 
 };
 
 // PUSH //
-Array.prototype.myPush = function() {
+Array.prototype.myPush = function(callback9) {
+  this[this.length] = callback9;
 
 };
 
 // LASTINDEXOF //
-Array.prototype.myLastIndexOf = function() {
+Array.prototype.myLastIndexOf = function(callback10) {
+  if (!this.length) return -1;
+  if (!cond) return this.length-1;
+
+  for (var i=this.length-1; i>=0; --i) {
+    if (cond(this[i])) return i;
+  }
+
+  return -1;
 
 };
 
 // KEYS //
-Object.grabKeys = function() {
+Object.grabKeys = function(callback11) {
+  this.
 
 };
 
 // VALUES //
-Object.grabValues = function() {
+Object.grabValues = function(callback12) {
 
 };
